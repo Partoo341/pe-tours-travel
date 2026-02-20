@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details | P&E Tours and Travel</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1C2E45;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f8f9fa;
+        }
+
+        /* ===== COLORS ===== */
+        :root {
+            --navy: #1C2E45;
+            --gold: #C4A35A;
+            --sand: #E2C28B;
+            --white: #F9F7F5;
+            --dark-navy: #0f1e2f;
+            --light-bg: #f8f9fa;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn-chat {
+            background: var(--navy);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-chat:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-book {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .btn-book:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        .badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(28, 46, 69, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+            font-weight: 300;
+            font-size: 1rem;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== PACKAGE DETAIL ===== */
+        .package-detail {
+            padding: 150px 0 60px;
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .package-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: #ffb400;
+        }
+
+        .rating-value {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* ===== GALLERY ===== */
+        .package-gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-main {
+            grid-row: span 2;
+            height: 400px;
+        }
+
+        .gallery-item {
+            height: 195px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img, .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img, .gallery-main:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== TRIP INFO ===== */
+        .trip-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(196, 163, 90, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .info-content h4 {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .info-content p {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* ===== TABS ===== */
+        .tabs {
+            display: flex;
+            gap: 30px;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 10px 0;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tab:hover, .tab.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== ITINERARY ===== */
+        .itinerary-day {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .itinerary-day:last-child {
+            border-bottom: none;
+        }
+
+        .day-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .day-number {
+            background: var(--gold);
+            color: var(--navy);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .day-heading {
+            font-size: 1.2rem;
+        }
+
+        /* ===== RATES ===== */
+        .rates-section {
+            margin-bottom: 40px;
+        }
+
+        .rate-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .rate-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 20px rgba(196, 163, 90, 0.1);
+        }
+
+        .rate-info h4 {
+            margin-bottom: 5px;
+            color: var(--navy);
+        }
+
+        .rate-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .rate-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-right: 20px;
+        }
+
+        .rate-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* ===== REVIEWS ===== */
+        .review-card {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .review-rating {
+            color: #ffb400;
+            margin-bottom: 10px;
+        }
+
+        /* ===== SIMILAR PACKAGES ===== */
+        .similar-packages {
+            margin-top: 60px;
+        }
+
+        .similar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .similar-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .similar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(196, 163, 90, 0.15);
+        }
+
+        .similar-image {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .similar-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .similar-content {
+            padding: 15px;
+        }
+
+        .similar-content h4 {
+            margin-bottom: 5px;
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        .similar-content p {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .similar-price {
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(196, 163, 90, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-navy);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b0b0b0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .package-header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .package-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-main {
+                grid-row: auto;
+                height: 250px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rate-card {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.jpeg" alt="P&E Tours and Travel Logo" class="logo-image">
+                <div class="logo-text">
+                    P&E Tours and Travel
+                    <span>Yours to Explore</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="index.html#packages">Packages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Package Detail -->
+    <section class="package-detail">
+        <div class="container">
+            <div class="package-header">
+                <div>
+                    <h1 id="package-title">Nakuru Summer Deals 2 Days 1 Night</h1>
+                    <div class="rating">
+                        <div class="stars" id="package-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-value" id="rating-value">4.5</span>
+                    </div>
+                </div>
+                <div class="share-buttons">
+                    <span class="badge">1k <i class="fas fa-eye"></i></span>
+                    <a href="#" class="share-btn"><i class="fas fa-share-alt"></i></a>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+            <div class="package-gallery">
+                <div class="gallery-main">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Main" id="gallery-main">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1572252009286-268acec5ca90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery 1" id="gallery-1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery 2" id="gallery-2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1547976152-ac956d37caf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery 3" id="gallery-3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery 4" id="gallery-4">
+                </div>
+            </div>
+
+            <!-- Trip Info -->
+            <div class="trip-info" id="trip-info">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-content">
+                        <h4>Location</h4>
+                        <p id="info-location">Nakuru</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div class="info-content">
+                        <h4>Duration</h4>
+                        <p id="info-duration">2 Days 1 Night</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="info-content">
+                        <h4>Meals</h4>
+                        <p id="info-meals">Full Board</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-car"></i></div>
+                    <div class="info-content">
+                        <h4>Transport</h4>
+                        <p id="info-transport">4x4 Safari Jeep</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <a class="tab active" onclick="showTab('overview')">Overview</a>
+                <a class="tab" onclick="showTab('itinerary')">Itinerary</a>
+                <a class="tab" onclick="showTab('pricing')">Pricing</a>
+                <a class="tab" onclick="showTab('notes')">Special Notes</a>
+                <a class="tab" onclick="showTab('reviews')">Reviews</a>
+                <a class="tab" onclick="showTab('rates')">Available Rates</a>
+            </div>
+
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <h3>Package Overview</h3>
+                <p id="overview-text">Experience the beautiful Lake Nakuru National Park with this amazing package. See thousands of flamingos, rhinos, and other wildlife against the stunning backdrop of the Great Rift Valley. This package includes game drives, accommodation, and meals.</p>
+                <h4 style="margin: 20px 0 10px">Highlights:</h4>
+                <ul style="margin-left: 20px;" id="highlights-list">
+                    <li>Game drive in Lake Nakuru National Park</li>
+                    <li>See flamingos and rhinos</li>
+                    <li>Comfortable accommodation</li>
+                    <li>All meals included</li>
+                    <li>Professional guide</li>
+                </ul>
+            </div>
+
+            <!-- Itinerary Tab -->
+            <div class="tab-content" id="itinerary">
+                <h3>Detailed Itinerary</h3>
+                <div class="itinerary-day">
+                    <div class="day-title">
+                        <div class="day-number">1</div>
+                        <h4 class="day-heading">Nairobi - Lake Nakuru</h4>
+                    </div>
+                    <p>Depart Nairobi in the morning, drive through the Great Rift Valley. Arrive at Lake Nakuru National Park for lunch. Afternoon game drive to see flamingos, rhinos, and other wildlife. Dinner and overnight at the lodge.</p>
+                </div>
+                <div class="itinerary-day">
+                    <div class="day-title">
+                        <div class="day-number">2</div>
+                        <h4 class="day-heading">Lake Nakuru - Nairobi</h4>
+                    </div>
+                    <p>Early morning game drive. Breakfast at the lodge. Depart for Nairobi with lunch en route. Arrive Nairobi in the afternoon.</p>
+                </div>
+            </div>
+
+            <!-- Pricing Tab -->
+            <div class="tab-content" id="pricing">
+                <h3>Pricing Details</h3>
+                <div class="rates-section">
+                    <div class="rate-card">
+                        <div class="rate-info">
+                            <h4>Per Person Sharing</h4>
+                            <p>2 people sharing a room</p>
+                        </div>
+                        <div class="rate-price">Ksh 11,750</div>
+                        <a href="#contact" class="btn-chat">Book Now</a>
+                    </div>
+                    <div class="rate-card">
+                        <div class="rate-info">
+                            <h4>Single Room</h4>
+                            <p>Solo traveler</p>
+                        </div>
+                        <div class="rate-price">Ksh 14,500</div>
+                        <a href="#contact" class="btn-chat">Book Now</a>
+                    </div>
+                    <div class="rate-card">
+                        <div class="rate-info">
+                            <h4>Group of 4</h4>
+                            <p>4 people sharing</p>
+                        </div>
+                        <div class="rate-price">Ksh 10,500</div>
+                        <a href="#contact" class="btn-chat">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Notes Tab -->
+            <div class="tab-content" id="notes">
+                <h3>Important Information</h3>
+                <ul style="margin-left: 20px;">
+                    <li>Park entry fees not included (approx $60 per person)</li>
+                    <li>Drinks not included</li>
+                    <li>Tips for guides not included</li>
+                    <li>Passport required for international visitors</li>
+                    <li>Yellow fever vaccination recommended</li>
+                </ul>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="reviews">
+                <h3>Guest Reviews</h3>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">John M.</span>
+                        <span class="review-date">March 2025</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>Amazing experience! Saw so many flamingos and even rhinos. The lodge was comfortable and food was great.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <span class="reviewer-name">Sarah K.</span>
+                        <span class="review-date">February 2025</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>Great value for money. Our guide was knowledgeable and friendly. Highly recommend!</p>
+                </div>
+            </div>
+
+            <!-- Available Rates Tab (Like fourth image) -->
+            <div class="tab-content" id="rates">
+                <h3>Available Rates</h3>
+                <div class="rates-section">
+                    <div class="rate-card">
+                        <div>
+                            <h4>Sarova Woodlands Lodge</h4>
+                            <p>Nakuru</p>
+                        </div>
+                        <div class="rate-price">Ksh 11,750</div>
+                        <div class="rate-actions">
+                            <a href="#contact" class="btn-book">BOOK</a>
+                        </div>
+                    </div>
+                    <div class="rate-card">
+                        <div>
+                            <h4>Sentrim Lodge Elementaita</h4>
+                            <p>Nakuru</p>
+                        </div>
+                        <div class="rate-price">Ksh 13,200</div>
+                        <div class="rate-actions">
+                            <a href="#contact" class="btn-book">BOOK</a>
+                        </div>
+                    </div>
+                    <div class="rate-card">
+                        <div>
+                            <h4>Lake Nakuru Sopa Lodge</h4>
+                            <p>Nakuru</p>
+                        </div>
+                        <div class="rate-price">Ksh 16,000</div>
+                        <div class="rate-actions">
+                            <a href="#contact" class="btn-book">BOOK</a>
+                        </div>
+                    </div>
+                    <div class="rate-card">
+                        <div>
+                            <h4>Sarova Lion Hill Lodge</h4>
+                            <p>Nakuru</p>
+                        </div>
+                        <div class="rate-price">Ksh 22,000</div>
+                        <div class="rate-actions">
+                            <a href="#contact" class="btn-book">BOOK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar Packages -->
+            <div class="similar-packages">
+                <h3>Similar Packages</h3>
+                <div class="similar-grid" id="similar-packages">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Book This Package</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Talk Travel</h3>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Eldoret, Kenya</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Nairobi, Kenya</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Arusha, Tanzania</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>+254 14000 1425 / +254 14000 1426</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>petoursandtravel@gmail.com</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>Mon-Fri: 9am - 6pm | Sat: 10am - 4pm</div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" action="https://formspree.io/f/xdallnbp" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="destination" placeholder="Package Name" id="package-field" value="Nakuru Summer Deals">
+                    <input type="tel" name="phone" placeholder="Your Phone Number. e.g +254 14000 1425" required>
+                    <textarea name="message" placeholder="Tell us about your dream trip..." required>I'm interested in booking the Nakuru Summer Deals package. Please contact me.</textarea>
+                    
+                    <input type="hidden" name="_replyto" value="email">
+                    <input type="hidden" name="_subject" value="Package Booking Inquiry from P&E Tours Website">
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">P&E <span>Tours and Travel</span></div>
+                    <p>Yours to Explore. Creating unforgettable journeys since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#destinations">Destinations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Destinations</h4>
+                    <ul>
+                        <li><a href="destination.html?place=maasai-mara">Maasai Mara</a></li>
+                        <li><a href="destination.html?place=diani">Diani Beach</a></li>
+                        <li><a href="destination.html?place=zanzibar">Zanzibar</a></li>
+                        <li><a href="destination.html?place=amboseli">Amboseli</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Booking Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 P&E Tours and Travel. All rights reserved. | Yours to Explore</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Tab switching
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Get package from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const packageName = urlParams.get('package') || 'nakuru-summer';
+        
+        // Update package field in contact form
+        document.getElementById('package-field').value = packageName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+        // Package database
+        const packagesData = {
+            'nakuru-summer': {
+                title: 'Nakuru Summer Deals 2 Days 1 Night',
+                rating: 4.5,
+                location: 'Nakuru',
+                duration: '2 Days 1 Night',
+                meals: 'Full Board',
+                transport: '4x4 Safari Jeep',
+                price: 'Ksh 11,750',
+                mainImage: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                gallery: [
+                    'https://images.unsplash.com/photo-1572252009286-268acec5ca90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1547976152-ac956d37caf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                ]
+            },
+            'maasai-mara-migration': {
+                title: 'Maasai Mara Migration 3 Days 2 Nights',
+                rating: 5.0,
+                location: 'Maasai Mara',
+                duration: '3 Days 2 Nights',
+                meals: 'Full Board',
+                transport: '4x4 Safari Jeep',
+                price: 'Ksh 28,500',
+                mainImage: 'https://images.unsplash.com/photo-1534177616072-ef7dc120449d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                gallery: [
+                    'https://images.unsplash.com/photo-1547976152-ac956d37caf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                ]
+            },
+            'diani-5days': {
+                title: '5 Days Diani Summer Deals',
+                rating: 4.7,
+                location: 'Diani/Ukunda',
+                duration: '5 Days 4 Nights',
+                meals: 'Half Board',
+                transport: 'Private Car',
+                price: 'Ksh 39,700',
+                mainImage: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                gallery: [
+                    'https://images.unsplash.com/photo-1506929562872-bb421503ef0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1537953773344-d081365d525a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                ]
+            }
+        };
+
+        const currentPackage = packagesData[packageName] || packagesData['nakuru-summer'];
+
+        // Update page with package data
+        document.getElementById('package-title').textContent = currentPackage.title;
+        document.getElementById('rating-value').textContent = currentPackage.rating;
+        document.getElementById('info-location').textContent = currentPackage.location;
+        document.getElementById('info-duration').textContent = currentPackage.duration;
+        document.getElementById('info-meals').textContent = currentPackage.meals;
+        document.getElementById('info-transport').textContent = currentPackage.transport;
+        
+        // Update gallery
+        document.getElementById('gallery-main').src = currentPackage.mainImage;
+        document.getElementById('gallery-1').src = currentPackage.gallery[0];
+        document.getElementById('gallery-2').src = currentPackage.gallery[1];
+        document.getElementById('gallery-3').src = currentPackage.gallery[2];
+        document.getElementById('gallery-4').src = currentPackage.gallery[3];
+
+        // Load similar packages
+        const similarContainer = document.getElementById('similar-packages');
+        const similarPackages = [
+            { title: 'Mombasa 3 Days Package', days: '3 Days / 2 Nights', price: 'Ksh 18,500', image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+            { title: 'Diani 3 Days Package', days: '3 Days / 2 Nights', price: 'Ksh 23,600', image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+            { title: 'Maasai Mara 3 Days', days: '3 Days / 2 Nights', price: 'Ksh 28,500', image: 'https://images.unsplash.com/photo-1534177616072-ef7dc120449d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+        ];
+
+        similarContainer.innerHTML = '';
+        similarPackages.forEach(pkg => {
+            similarContainer.innerHTML += `
+                <div class="similar-card" onclick="location.href='#contact'">
+                    <div class="similar-image">
+                        <img src="${pkg.image}" alt="${pkg.title}">
+                    </div>
+                    <div class="similar-content">
+                        <h4>${pkg.title}</h4>
+                        <p>${pkg.days}</p>
+                        <div class="similar-price">${pkg.price}</div>
+                        <a href="#contact" class="btn-chat" style="padding: 5px 15px; font-size: 0.8rem;"><i class="fas fa-comment"></i> Chat</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            alert('Mobile menu would open here. Add your own functionality!');
+        });
+    </script>
+</body>
+</html>

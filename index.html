@@ -26,6 +26,7 @@
             --sand: #E2C28B;
             --white: #F9F7F5;
             --dark-navy: #0f1e2f;
+            --light-bg: #f8f9fa;
         }
 
         /* ===== TYPOGRAPHY ===== */
@@ -77,6 +78,7 @@
             border-radius: 4px;
             transition: all 0.3s ease;
             border: 2px solid var(--gold);
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -95,107 +97,98 @@
             color: var(--navy);
         }
 
-       /* ===== HEADER ===== */
-header {
-    background: var(--navy);
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
 
-header.scrolled {
-    padding: 10px 0;
-    background: rgba(28, 46, 69, 0.95);
-    backdrop-filter: blur(10px);
-}
+        .btn-chat {
+            background: var(--navy);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .btn-chat:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+        .btn-book {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
 
-.logo-image {
-    height: 50px;  /* Adjust this based on your logo */
-    width: auto;
-    max-width: 150px;
-    object-fit: contain;
-}
+        .btn-book:hover {
+            background: var(--navy);
+            color: white;
+        }
 
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.2;
-}
+        .badge {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
 
-.logo-text span {
-    color: var(--gold);
-    font-weight: 300;
-    font-size: 1rem;
-    display: block;
-}
+        /* ===== HEADER ===== */
+        header {
+            background: var(--navy);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-/* Remove the old vesica logo styles */
-/* .logo-icon, .vesica, .vesica:before, .vesica:after, .globe {
-    display: none;
-} */
-        /* Vesica Piscis Logo */
-        .vesica {
-            width: 50px;
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(28, 46, 69, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
             height: 50px;
-            position: relative;
-        }
-
-        .vesica:before, .vesica:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: transparent;
-            border: 3px solid var(--gold);
-            top: 5px;
-        }
-
-        .vesica:before {
-            left: 0;
-        }
-
-        .vesica:after {
-            left: 20px;
-        }
-
-        .vesica .globe {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            top: 10px;
-            left: 15px;
-            z-index: 2;
-        }
-
-        .vesica .globe:before {
-            content: '🌐';
-            font-size: 24px;
-            position: absolute;
-            left: -5px;
-            top: -5px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
         }
 
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--white);
+            line-height: 1.2;
         }
 
         .logo-text span {
@@ -208,10 +201,7 @@ header.scrolled {
         nav ul {
             display: flex;
             list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
+            gap: 30px;
         }
 
         nav ul li a {
@@ -353,66 +343,194 @@ header.scrolled {
             font-weight: 500;
         }
 
-        /* ===== DESTINATIONS ===== */
+        /* ===== DESTINATIONS GRID ===== */
         .destinations {
             padding: 100px 0;
             background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf0 100%);
         }
 
+        .destinations-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .destinations-tabs {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-link {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tab-link:hover, .tab-link.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
         .destinations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .destination-card {
+        .destination-item {
             background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #eee;
         }
 
-        .destination-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 40px rgba(196, 163, 90, 0.2);
+        .destination-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(196, 163, 90, 0.15);
+            border-color: var(--gold);
         }
 
-        .card-image {
-            height: 250px;
+        .destination-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .destination-name {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .destination-count {
+            color: var(--gold);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ===== FEATURED PACKAGES ===== */
+        .featured-packages {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .view-all {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
         }
 
-        .card-image img {
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(196, 163, 90, 0.2);
+        }
+
+        .package-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .package-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .destination-card:hover .card-image img {
+        .package-card:hover .package-image img {
             transform: scale(1.1);
         }
 
-        .card-content {
-            padding: 25px;
+        .package-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
         }
 
-        .card-content h3 {
+        .package-content {
+            padding: 20px;
+        }
+
+        .package-title {
+            font-size: 1.2rem;
             margin-bottom: 10px;
             color: var(--navy);
         }
 
-        .card-content p {
+        .package-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
             color: #666;
-            margin-bottom: 20px;
         }
 
-        .card-price {
-            font-size: 1.3rem;
+        .package-meta i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .package-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .package-rating {
+            color: #ffb400;
+        }
+
+        .package-rating span {
+            color: #666;
+            margin-left: 5px;
         }
 
         /* ===== WHY CHOOSE US ===== */
@@ -734,6 +852,12 @@ header.scrolled {
                 margin: 10px auto;
                 max-width: 200px;
             }
+
+            .destinations-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
         }
     </style>
     <!-- Google Fonts -->
@@ -742,35 +866,36 @@ header.scrolled {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-   <<!-- Header -->
-<header id="header">
-    <div class="container header-content">
-        <div class="logo">
-            <!-- Replace with your logo image -->
-            <img src="logo.jpeg" alt="P&E Tours and Travel Logo" class="logo-image">
-            <div class="logo-text">
-                P&E Tours and Travel
-                <span>Yours to Explore</span>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.jpeg" alt="P&E Tours and Travel Logo" class="logo-image">
+                <div class="logo-text">
+                    P&E Tours and Travel
+                    <span>Yours to Explore</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#destinations">Destinations</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</header>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Yours to Explore</h1>
-            <p>Discover the world with P&E Tours and Travel. Your journey begins here.</p>
+            <p>Discover Kenya & Tanzania with P&E Tours. Your journey begins here.</p>
             <div class="hero-buttons">
                 <a href="#destinations" class="btn">Explore Destinations</a>
                 <a href="#contact" class="btn btn-outline">Contact Us</a>
@@ -790,7 +915,7 @@ header.scrolled {
             <div class="about-grid">
                 <div class="about-content">
                     <p>Founded by Patrick and Evans, we believe that travel is more than just visiting new places—it's about creating stories, forging connections, and discovering the extraordinary.</p>
-                    <p>With over 15 years of experience, we've helped thousands of travelers find their perfect adventure. From African safaris to European escapes, we're here to make your dreams a reality.</p>
+                    <p>With over 15 years of experience, we've helped thousands of travelers find their perfect adventure. From Kenyan safaris to Tanzanian beaches, we're here to make your dreams a reality.</p>
                     <p>Our name comes from the Vesica Piscis—the ancient symbol of creation and gateway to new beginnings. Every trip with us is a portal to something magical.</p>
                 </div>
                 <div class="about-stats">
@@ -815,39 +940,210 @@ header.scrolled {
         </div>
     </section>
 
-    <!-- Destinations Section -->
+    <!-- Destinations Grid with Filtering -->
     <section class="destinations" id="destinations">
         <div class="container">
-            <h2>Popular Destinations</h2>
-            <div class="destinations-grid">
-                <div class="destination-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Safari">
+            <div class="destinations-header">
+                <h2>Explore Destinations</h2>
+                <div class="destinations-tabs">
+                    <a class="tab-link active" onclick="filterDestinations('all')">All</a>
+                    <a class="tab-link" onclick="filterDestinations('kenya')">Kenya</a>
+                    <a class="tab-link" onclick="filterDestinations('tanzania')">Tanzania</a>
+                    <a class="tab-link" onclick="filterDestinations('beach')">Beach</a>
+                    <a class="tab-link" onclick="filterDestinations('safari')">Safari</a>
+                </div>
+            </div>
+
+            <div class="destinations-grid" id="destinations-grid">
+                <!-- Kenya Destinations -->
+                <div class="destination-item" data-country="kenya" data-category="safari" onclick="location.href='destination.html?place=nakuru'">
+                    <div class="destination-icon">🦒</div>
+                    <div class="destination-name">Nakuru</div>
+                    <div class="destination-count">(8) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="safari" onclick="location.href='destination.html?place=naivasha'">
+                    <div class="destination-icon">🦛</div>
+                    <div class="destination-name">Naivasha</div>
+                    <div class="destination-count">(6) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="city" onclick="location.href='destination.html?place=nairobi'">
+                    <div class="destination-icon">🏙️</div>
+                    <div class="destination-name">Nairobi</div>
+                    <div class="destination-count">(12) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="highlands" onclick="location.href='destination.html?place=eldoret'">
+                    <div class="destination-icon">⛰️</div>
+                    <div class="destination-name">Eldoret</div>
+                    <div class="destination-count">(5) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="safari" onclick="location.href='destination.html?place=maasai-mara'">
+                    <div class="destination-icon">🦁</div>
+                    <div class="destination-name">Maasai Mara</div>
+                    <div class="destination-count">(15) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="safari" onclick="location.href='destination.html?place=amboseli'">
+                    <div class="destination-icon">🐘</div>
+                    <div class="destination-name">Amboseli</div>
+                    <div class="destination-count">(7) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="safari" onclick="location.href='destination.html?place=samburu'">
+                    <div class="destination-icon">🦓</div>
+                    <div class="destination-name">Samburu</div>
+                    <div class="destination-count">(4) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="safari" onclick="location.href='destination.html?place=tsavo'">
+                    <div class="destination-icon">🐘</div>
+                    <div class="destination-name">Tsavo</div>
+                    <div class="destination-count">(6) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="beach" onclick="location.href='destination.html?place=diani'">
+                    <div class="destination-icon">🏖️</div>
+                    <div class="destination-name">Diani/Ukunda</div>
+                    <div class="destination-count">(9) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="beach" onclick="location.href='destination.html?place=malindi'">
+                    <div class="destination-icon">🏝️</div>
+                    <div class="destination-name">Malindi/Watamu</div>
+                    <div class="destination-count">(7) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="beach" onclick="location.href='destination.html?place=mombasa'">
+                    <div class="destination-icon">⚓</div>
+                    <div class="destination-name">Mombasa North Coast</div>
+                    <div class="destination-count">(10) Packages</div>
+                </div>
+                <div class="destination-item" data-country="kenya" data-category="mountain" onclick="location.href='destination.html?place=mt-kenya'">
+                    <div class="destination-icon">🏔️</div>
+                    <div class="destination-name">Mt. Kenya</div>
+                    <div class="destination-count">(3) Packages</div>
+                </div>
+                
+                <!-- Tanzania Destinations -->
+                <div class="destination-item" data-country="tanzania" data-category="city" onclick="location.href='destination.html?place=arusha'">
+                    <div class="destination-icon">🗻</div>
+                    <div class="destination-name">Arusha</div>
+                    <div class="destination-count">(8) Packages</div>
+                </div>
+                <div class="destination-item" data-country="tanzania" data-category="safari" onclick="location.href='destination.html?place=serengeti'">
+                    <div class="destination-icon">🦓</div>
+                    <div class="destination-name">Serengeti</div>
+                    <div class="destination-count">(12) Packages</div>
+                </div>
+                <div class="destination-item" data-country="tanzania" data-category="safari" onclick="location.href='destination.html?place=ngorongoro'">
+                    <div class="destination-icon">🦏</div>
+                    <div class="destination-name">Ngorongoro</div>
+                    <div class="destination-count">(6) Packages</div>
+                </div>
+                <div class="destination-item" data-country="tanzania" data-category="beach" onclick="location.href='destination.html?place=zanzibar'">
+                    <div class="destination-icon">🏝️</div>
+                    <div class="destination-name">Zanzibar</div>
+                    <div class="destination-count">(14) Packages</div>
+                </div>
+                <div class="destination-item" data-country="tanzania" data-category="mountain" onclick="location.href='destination.html?place=kilimanjaro'">
+                    <div class="destination-icon">🏔️</div>
+                    <div class="destination-name">Kilimanjaro</div>
+                    <div class="destination-count">(9) Packages</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Packages -->
+    <section class="featured-packages" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Packages</h2>
+                <a href="#destinations" class="view-all">View All →</a>
+            </div>
+            <div class="packages-grid">
+                <!-- Nakuru Package -->
+                <div class="package-card" onclick="location.href='package-detail.html?package=nakuru-summer'">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lake Nakuru">
+                        <div class="package-badge">Popular</div>
                     </div>
-                    <div class="card-content">
-                        <h3>African Safari</h3>
-                        <p>Witness the great migration in Kenya and Tanzania</p>
-                        <div class="card-price">From $2,499</div>
+                    <div class="package-content">
+                        <h3 class="package-title">Nakuru Summer Deals</h3>
+                        <div class="package-meta">
+                            <span><i class="fas fa-clock"></i> 2 Days 1 Night</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Nakuru</span>
+                        </div>
+                        <div class="package-price">Ksh 11,750</div>
+                        <div class="package-footer">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <a href="package-detail.html?package=nakuru-summer" class="btn-chat"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
                     </div>
                 </div>
-                <div class="destination-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris">
+
+                <!-- Maasai Mara Package -->
+                <div class="package-card" onclick="location.href='package-detail.html?package=maasai-mara-migration'">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1534177616072-ef7dc120449d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maasai Mara">
+                        <div class="package-badge">Wildlife</div>
                     </div>
-                    <div class="card-content">
-                        <h3>European Escape</h3>
-                        <p>Paris, Rome, Barcelona - 7 countries in 14 days</p>
-                        <div class="card-price">From $3,299</div>
+                    <div class="package-content">
+                        <h3 class="package-title">Maasai Mara Migration</h3>
+                        <div class="package-meta">
+                            <span><i class="fas fa-clock"></i> 3 Days 2 Nights</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Maasai Mara</span>
+                        </div>
+                        <div class="package-price">Ksh 28,500</div>
+                        <div class="package-footer">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <a href="package-detail.html?package=maasai-mara-migration" class="btn-chat"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
                     </div>
                 </div>
-                <div class="destination-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bali">
+
+                <!-- Diani Package -->
+                <div class="package-card" onclick="location.href='package-detail.html?package=diani-5days'">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Diani Beach">
+                        <div class="package-badge">Beach</div>
                     </div>
-                    <div class="card-content">
-                        <h3>Tropical Paradise</h3>
-                        <p>Bali, Maldives, Thailand - Ultimate beach getaway</p>
-                        <div class="card-price">From $1,899</div>
+                    <div class="package-content">
+                        <h3 class="package-title">5 Days Diani Summer</h3>
+                        <div class="package-meta">
+                            <span><i class="fas fa-clock"></i> 5 Days 4 Nights</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Diani/Ukunda</span>
+                        </div>
+                        <div class="package-price">Ksh 39,700</div>
+                        <div class="package-footer">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <a href="package-detail.html?package=diani-5days" class="btn-chat"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zanzibar Package -->
+                <div class="package-card" onclick="location.href='package-detail.html?package=zanzibar-escape'">
+                    <div class="package-image">
+                        <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Zanzibar">
+                        <div class="package-badge">Popular</div>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title">Zanzibar Beach Escape</h3>
+                        <div class="package-meta">
+                            <span><i class="fas fa-clock"></i> 4 Days 3 Nights</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Zanzibar</span>
+                        </div>
+                        <div class="package-price">Ksh 45,000</div>
+                        <div class="package-footer">
+                            <div class="package-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <a href="package-detail.html?package=zanzibar-escape" class="btn-chat"><i class="fas fa-info-circle"></i> Details</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -899,22 +1195,22 @@ header.scrolled {
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"The European tour was seamless. Patrick and Evans thought of everything. Can't wait to book our next adventure!"</p>
+                    <p class="testimonial-text">"The Diani beach package was amazing! Patrick and Evans thought of everything. Can't wait to book our next adventure!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JD</div>
                         <div class="author-info">
                             <h4>James D.</h4>
-                            <p>Europe Tour, 2024</p>
+                            <p>Diani Beach, 2024</p>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Best travel agency I've ever used. They listen to what you want and deliver beyond expectations."</p>
+                    <p class="testimonial-text">"Best travel agency I've ever used. They listen to what you want and deliver beyond expectations. Zanzibar was paradise!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">LR</div>
                         <div class="author-info">
                             <h4>Lisa R.</h4>
-                            <p>Bali Getaway, 2023</p>
+                            <p>Zanzibar, 2023</p>
                         </div>
                     </div>
                 </div>
@@ -930,59 +1226,55 @@ header.scrolled {
             <a href="#contact" class="btn">Start Planning Now</a>
         </div>
     </section>
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <div class="container">
-        <h2>Get In Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Let's Talk Travel</h3>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>Eldoret, Kenya</div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Talk Travel</h3>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Eldoret, Kenya</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Nairobi, Kenya</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>Arusha, Tanzania</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div>+254 14000 1425 / +254 14000 1426</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>petoursandtravel@gmail.com</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>Mon-Fri: 9am - 6pm | Sat: 10am - 4pm</div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" action="https://formspree.io/f/xdallnbp" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="destination" placeholder="Destination of Interest">
+                    <input type="tel" name="phone" placeholder="Your Phone Number. e.g +254 14000 1425" required>
+                    <textarea name="message" placeholder="Tell us about your dream trip..." required></textarea>
                     
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>Nairobi, Kenya</div>
+                    <input type="hidden" name="_replyto" value="email">
+                    <input type="hidden" name="_subject" value="New Inquiry from P&E Tours Website">
                     
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div>Arusha, Tanzania</div>
-                    
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-phone"></i></div>
-                    <div>+254 14000 1425 / +254 14000 1426</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                    <div>petoursandtravel@gmail.com</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-clock"></i></div>
-                    <div>Mon-Fri: 9am - 6pm | Sat: 10am - 4pm</div>
-                </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
             </div>
-            
-            <!-- Updated Form with Formspree -->
-            <form class="contact-form" action="https://formspree.io/f/xdallnbp" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="destination" placeholder="Destination of Interest">
-                <input type="number" name="Phone Number" placeholder="Your Phone Number. e.g +254 14000 1425 or 0140 001 426" required>
-                
-                <!-- Optional: Add a reply-to field so you can reply directly -->
-                <input type="hidden" name="_replyto" value="email">
-                <!-- Optional: Add a subject line -->
-                <input type="hidden" name="_subject" value="New Inquiry from P&E Tours Website">
-                
-                <button type="submit" class="btn">Send Message</button>
-            </form>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -990,7 +1282,7 @@ header.scrolled {
             <div class="footer-grid">
                 <div class="footer-about">
                     <div class="footer-logo">P&E <span>Tours and Travel</span></div>
-                    <p>Yours to Explore. Creating unforgettable journeys</p>
+                    <p>Yours to Explore. Creating unforgettable journeys since 2010.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1001,7 +1293,7 @@ header.scrolled {
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#destinations">Destinations</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -1010,10 +1302,10 @@ header.scrolled {
                 <div class="footer-links">
                     <h4>Destinations</h4>
                     <ul>
-                        <li><a href="#">Africa Safaris</a></li>
-                        <li><a href="#">Europe Tours</a></li>
-                        <li><a href="#">Asia Adventures</a></li>
-                        <li><a href="#">Beach Getaways</a></li>
+                        <li><a href="destination.html?place=maasai-mara">Maasai Mara</a></li>
+                        <li><a href="destination.html?place=diani">Diani Beach</a></li>
+                        <li><a href="destination.html?place=zanzibar">Zanzibar</a></li>
+                        <li><a href="destination.html?place=amboseli">Amboseli</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -1032,39 +1324,68 @@ header.scrolled {
         </div>
     </footer>
 
-  <!-- JavaScript -->
-<script>
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    <!-- JavaScript -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
-    });
 
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu').addEventListener('click', function() {
-        alert('Mobile menu would open here. Add your own functionality!');
-    });
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    // Formspree will handle the rest automatically
-    // The user will be redirected to Formspree's thank you page after submission
-</script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            alert('Mobile menu would open here. Add your own functionality!');
+        });
+
+        // Destination filtering
+        function filterDestinations(country) {
+            const items = document.querySelectorAll('.destination-item');
+            const tabs = document.querySelectorAll('.tab-link');
+            
+            // Update active tab
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter items
+            items.forEach(item => {
+                if (country === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    const itemCountry = item.getAttribute('data-country');
+                    if (itemCountry === country) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            // Formspree will handle it
+            // The user will be redirected to Formspree's thank you page
+        });
+    </script>
 </body>
 </html>
